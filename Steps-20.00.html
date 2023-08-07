@@ -1,0 +1,173 @@
+
+Postscript Addition
+20
+<p><img src="https://app.colaberry.com/uploads/ProjectStepsImages/1269/24/1.jpg"></p><p><br></p><div style="margin: 0px; color: rgb(40, 60, 70); font-family: -apple-system, system-ui, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 18px;">Oftentimes you’ll find that changes and/or additions need to be made to a report to improve it. These may be brought to your attention by the report end users or by yourself. Nevertheless, updating a report should be an expected part of report development. This step is an example of that. In this step we’ll be adding a measure to the Measures table and then we’ll use that measure to create a sort of sub-KPI that’ll allow us to State Export Concentration, we’ll essentially use the State field in the denominator of our Percentage calculation so that the Grand Total is calculated at a state level and not at the national level.<br><br></div><div style="margin: 0px; color: rgb(40, 60, 70); font-family: -apple-system, system-ui, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 18px;"><p class="MsoNormal" style="margin-bottom: 0in; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size: 13.5pt; font-family: &quot;Segoe UI&quot;, sans-serif;">You
+create the measure by typing the following DAX formula into the DAX formula
+bar:<br>
+<!--[if !supportLineBreakNewLine]--><br>
+<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;line-height:13.5pt;background:#FFFFFE"><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">State Export Concentration = <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;line-height:13.5pt;background:#FFFFFE"><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#3165BB;mso-font-kerning:0pt;mso-ligatures:
+none">IF</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:
+0pt;mso-ligatures:none">(</span><span style="font-size:9.0pt;font-family:Consolas;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:#3165BB;mso-font-kerning:0pt;mso-ligatures:none">HASONEVALUE</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">(</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;color:#001080;mso-font-kerning:
+0pt;mso-ligatures:none">Dim_BrazilLocation[State]</span><span style="font-size:
+9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">),<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;line-height:13.5pt;background:#FFFFFE"><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">&nbsp; &nbsp; </span><span style="font-size:9.0pt;font-family:Consolas;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:#3165BB;mso-font-kerning:0pt;mso-ligatures:none">DIVIDE</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">(</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;color:#3165BB;mso-font-kerning:
+0pt;mso-ligatures:none">CALCULATE</span><span style="font-size:9.0pt;
+font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:none">(</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#68349C;mso-font-kerning:0pt;mso-ligatures:
+none">[Total Export Earnings]</span><span style="font-size:9.0pt;font-family:
+Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">, </span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#3165BB;mso-font-kerning:0pt;mso-ligatures:
+none">ALL</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:
+0pt;mso-ligatures:none">(), </span><span style="font-size:9.0pt;font-family:
+Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:#3165BB;mso-font-kerning:0pt;mso-ligatures:none">VALUES</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">(</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;color:#001080;mso-font-kerning:
+0pt;mso-ligatures:none">Dim_Product</span><span style="font-size:9.0pt;
+font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:none">), <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;line-height:13.5pt;background:#FFFFFE"><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size:
+9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#3165BB;mso-font-kerning:0pt;mso-ligatures:
+none">VALUES</span><span style="font-size:9.0pt;font-family:Consolas;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">(</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#001080;mso-font-kerning:0pt;mso-ligatures:
+none">Dim_BrazilLocation[State]</span><span style="font-size:9.0pt;font-family:
+Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">), </span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#3165BB;mso-font-kerning:0pt;mso-ligatures:
+none">VALUES</span><span style="font-size:9.0pt;font-family:Consolas;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">(</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#001080;mso-font-kerning:0pt;mso-ligatures:
+none">Dim_ExportDestination</span><span style="font-size:9.0pt;font-family:
+Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">), </span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#3165BB;mso-font-kerning:0pt;mso-ligatures:
+none">VALUES</span><span style="font-size:9.0pt;font-family:Consolas;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">(</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#001080;mso-font-kerning:0pt;mso-ligatures:
+none">'Calendar'[Date]</span><span style="font-size:9.0pt;font-family:Consolas;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;line-height:13.5pt;background:#FFFFFE"><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;line-height:13.5pt;background:#FFFFFE"><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size:
+9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#3165BB;mso-font-kerning:0pt;mso-ligatures:
+none">CALCULATE</span><span style="font-size:9.0pt;font-family:Consolas;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">(</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#68349C;mso-font-kerning:0pt;mso-ligatures:
+none">[Total Export Earnings]</span><span style="font-size:9.0pt;font-family:
+Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">, </span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#3165BB;mso-font-kerning:0pt;mso-ligatures:
+none">ALL</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:
+0pt;mso-ligatures:none">(), </span><span style="font-size:9.0pt;font-family:
+Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:#3165BB;mso-font-kerning:0pt;mso-ligatures:none">VALUES</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">(</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;color:#001080;mso-font-kerning:
+0pt;mso-ligatures:none">'Calendar'[Year]</span><span style="font-size:9.0pt;
+font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:none">), <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;line-height:13.5pt;background:#FFFFFE"><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#3165BB;mso-font-kerning:0pt;mso-ligatures:
+none">VALUES</span><span style="font-size:9.0pt;font-family:Consolas;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">(</span><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:#001080;mso-font-kerning:0pt;mso-ligatures:
+none">Dim_BrazilLocation[State]</span><span style="font-size:9.0pt;font-family:
+Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;
+color:black;mso-font-kerning:0pt;mso-ligatures:none">)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;line-height:13.5pt;background:#FFFFFE"><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; )<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;line-height:13.5pt;background:#FFFFFE"><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">&nbsp; &nbsp; )<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;line-height:13.5pt;background:#FFFFFE"><span style="font-size:9.0pt;font-family:Consolas;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Segoe UI&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:
+none">)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom: 0in; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size: 13.5pt; font-family: &quot;Segoe UI&quot;, sans-serif;">&nbsp;<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom: 0in; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size: 13.5pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Format
+State Export Concentration as a percentage with one decimal place.<br>
+<!--[if !supportLineBreakNewLine]--><br>
+<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom: 0in; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size: 13.5pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Then
+you expand the Visualizations pane, and in the Build visual tab select the
+Multi-row card. Drag and drop the State Export Concentration measure into the
+Multi-row card. Navigate to the Fields prompt and rename State Export
+Concentration to State Export Conc.<br>
+<!--[if !supportLineBreakNewLine]--><br>
+<!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom: 0in; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size: 13.5pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Click
+on the Format visual tab, expand Callout values, and set the font to DIN and
+size 14. Set Category labels to Off. Click on the conditional formatting, fx, button
+next to Color. Select Rules for Format style, and select State Export
+Concentration for What field should we base this on? Define the rule, If value
+is blank then white. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom: 0in; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size: 13.5pt; font-family: &quot;Segoe UI&quot;, sans-serif;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-bottom: 0in; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size: 13.5pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Click
+on the General tab and expand Properties, set Height to 61 and Width to 201,
+expand Position and set Horizontal to 203 and Vertical to 658. Set Title to On.
+Expand Title and type in State Export Conc. In the Text prompt. Select Font DIN
+and size 14. Click on the conditional formatting, fx, button next to Text
+color. Select Rules for Format style, and select State Export Concentration for
+What field should we base this on? Define the rule, If value is blank then
+white.</span></p><p class="MsoNormal" style="margin-bottom: 0in; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size: 13.5pt; font-family: &quot;Segoe UI&quot;, sans-serif;"><o:p><br></o:p></span></p><p class="MsoNormal" style="margin-bottom: 0in; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><img src="https://app.colaberry.com/uploads/ProjectStepsImages/1269/20/4.gif" style="width: 50%;"><br></p></div>
+
+<p><a href="https://learn.microsoft.com/en-us/dax/hasonevalue-function-dax" target="_blank">HASONEVALUE function</a><br></p>
+
